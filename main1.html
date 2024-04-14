@@ -1,0 +1,161 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Main Website</title>
+<style>
+    body {
+        background-image: url(BackgSa\ web.png);
+        background-repeat: repeat;
+        
+        font-family: Arial, sans-serif;
+        display: flex;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar {
+        width: 200px;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .menu-link {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+
+    .menu-link:hover {
+        text-decoration: underline;
+    }
+
+    .menu-title {
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .column {
+        width: calc(33.33% - 20px); /* Adjust the width as needed */
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .column:hover {
+        background-color: #e0e0e0;
+    }
+
+    .filter {
+        margin-bottom: 20px;
+    }
+
+    .controls {
+        margin-bottom: 20px;
+    }
+
+    .iframe-container {
+        border: 1px solid #ccc;
+        height: 400px;
+        overflow: auto;
+        margin-bottom: 20px;
+    }
+
+    .iframe-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu-title">Menu</div>
+        <a href="settings.html" class="menu-link">Settings</a>
+        <a href="help.html" class="menu-link">Help</a>
+        <a href="configuration.html" class="menu-link">Configuration</a>
+        <a href="feedback.html" class="menu-link">Make me a Feedback</a>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to the Main Website</h1>
+        <p>Select an option from the menu on the left or click on a column below to view its content.</p>
+        
+        <div class="filter">
+            <label for="gradingFilter">Select Grading:</label>
+            <select id="gradingFilter" onchange="filterOutputs()">
+                <option value="all">All Gradings</option>
+                <option value="1st">1st Grading</option>
+                <option value="2nd">2nd Grading</option>
+                <option value="3rd">3rd Grading</option>
+                <option value="4th">4th Grading</option>
+            </select>
+        </div>
+        
+        <div class="controls">
+            
+            <button onclick="resetContent()">Reset</button>
+            
+        </div>
+        
+        <div class="iframe-container">
+            <iframe id="gradingOutput" src="about:blank"></iframe>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function filterOutputs() {
+            // Code for filtering outputs based on grading (1st, 2nd, 3rd, 4th)
+            var gradingFilter = document.getElementById("gradingFilter").value;
+            var iframeSrc = "";
+            switch (gradingFilter) {
+                case "1st":
+                    iframeSrc = "1stgradingoutputs.html";
+                    break;
+                case "2nd":
+                    iframeSrc = "2ndgradingoutputs.html";
+                    break;
+                case "3rd":
+                    iframeSrc = "3rdgradingoutputs.html";
+                    break;
+                case "4th":
+                    iframeSrc = "4thgradingoutputs.html";
+                    break;
+                default:
+                    iframeSrc = "";
+                    break;
+            }
+            document.getElementById("gradingOutput").src = iframeSrc;
+        }
+        
+        function resetContent() {
+            // Code to reset content or reload initial state in the iframe
+            document.getElementById("gradingOutput").src = document.getElementById("gradingOutput").src;
+        }
+
+        function runColumn(columnName, grading) {
+            // You can add specific actions related to columns here
+        }
+    </script>
+</body>
+</html>

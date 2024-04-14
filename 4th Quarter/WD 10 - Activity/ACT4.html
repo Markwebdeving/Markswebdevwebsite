@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>JavaScript Function</title>
+ 
+ <script type="text/javascript">
+ function test_func1() {document.write("This Function loaded without a parameter.<br><br>")
+ }
+ function test_func2(time) {
+ alert ("Good " + time + ".It is nice to meet you! ")
+ }
+ 
+ function make_return() { document.write("this function returns an integer. <br><br>")
+ return 7}
+ 
+ function alert_me(){num_1=make_return()
+ alert("There are "+ num_1 +"days in a week!")}
+ </script>
+ </head>
+ 
+ <body>
+ <h2>Using Functions</h2>
+ <script type="text/javascript"> test_func1() </script>
+ <input type="button" onclick="test_func2('Morning')" value="Morning">
+ <input type="button" onclick="test_func1('Evening')" value="Evening">
+ 
+ <h2> Using return function</h2>
+ <script type="text/javascript"> aler_me()</script>
+ </body>
+ </html>

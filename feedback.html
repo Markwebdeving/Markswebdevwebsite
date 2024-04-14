@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Feedback Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .feedback-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div class="feedback-container">
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="rating">Overall Rating (1-5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="6" required></textarea>
+
+            <label for="improvements">Suggestions for Improvement:</label>
+            <textarea id="improvements" name="improvements" rows="6"></textarea>
+
+            <label for="contact">Can we contact you for further feedback?</label>
+            <input type="checkbox" id="contact" name="contact">
+
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var rating = document.getElementById("rating").value;
+            var feedback = document.getElementById("feedback").value;
+            var improvements = document.getElementById("improvements").value;
+            var contact = document.getElementById("contact").checked ? "Yes" : "No";
+
+            // You can handle form submission here, like sending data to a server or displaying a thank you message
+            // For now, let's log the data to the console
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Rating:", rating);
+            console.log("Feedback:", feedback);
+            console.log("Suggestions for Improvement:", improvements);
+            console.log("Can we contact you:", contact);
+
+            // Optionally, you can show a thank you message to the user
+            alert("Thank you for your feedback!");
+            // Clear the form after submission
+            document.getElementById("feedbackForm").reset();
+        });
+    </script>
+</body>
+</html>
