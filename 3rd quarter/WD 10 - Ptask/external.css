@@ -1,0 +1,18 @@
+body {
+background-color:#9370DB
+}
+
+p {
+color:cyan;
+size:14px;
+}
+
+h6 {
+border-style:dotted;
+}
+th, td {
+font:Courier New;
+border-style:outset;
+border-width:2px;
+border-color:grey;
+}
